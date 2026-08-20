@@ -21,6 +21,14 @@ app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok' });
 });
 
+app.get('/api', (_request, response) => {
+  response.json({
+    name: 'OctoFit Tracker API',
+    baseUrl,
+    endpoints: ['users', 'teams', 'activities', 'leaderboard', 'workouts'],
+  });
+});
+
 app.use('/api/users', usersRouter);
 app.use('/api/teams', teamsRouter);
 app.use('/api/activities', activitiesRouter);
