@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 function Workouts() {
   const [workouts, setWorkouts] = useState([])
   const [state, setState] = useState('loading')
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME || (window.location.hostname.endsWith('-5173.app.github.dev') ? window.location.hostname.replace('-5173.app.github.dev', '') : '')
   const apiUrl = codespaceName ? `https://${codespaceName}-8000.app.github.dev/api/workouts/` : 'http://localhost:8000/api/workouts/'
 
   useEffect(() => {

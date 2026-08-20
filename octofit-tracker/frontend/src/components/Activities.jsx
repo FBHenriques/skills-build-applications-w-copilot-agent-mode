@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 function Activities() {
   const [activities, setActivities] = useState([])
   const [state, setState] = useState('loading')
-  const codespaceName = import.meta.env.VITE_CODESPACE_NAME
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME || (window.location.hostname.endsWith('-5173.app.github.dev') ? window.location.hostname.replace('-5173.app.github.dev', '') : '')
   const apiUrl = codespaceName ? `https://${codespaceName}-8000.app.github.dev/api/activities/` : 'http://localhost:8000/api/activities/'
 
   useEffect(() => {
